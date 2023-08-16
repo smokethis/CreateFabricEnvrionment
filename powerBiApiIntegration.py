@@ -144,7 +144,6 @@ def assignWorkspaceToPipeline(token, workspaceId, pipelineId, stage):
     return response
 
 def assignPipelineGroup(token, pipelineId, oid, accessRight):
-
     # Assign user to pipeline
     content = json.dumps({'identifier': oid, 'accessRight': accessRight, 'principalType': 'Group'})
     response = placePowerBICall(token, 'post', f'pipelines/{pipelineId}/users', content)
