@@ -76,8 +76,8 @@ def createResources(groupName, role, workspaceTag, purpose):
     print(workspaces)
     input('Press enter when capacity assignment is done')
 
-    configurePipeline(workspaces, 'GRP-' + purpose + workspaceTag, 
-                      'Pipeline for ' + workspaceTag, groupId, role)
+    configurePipeline(workspaces, 'GRP-' + workspaceTag, 
+                      'Pipeline for ' + workspaceTag, groupId)
 
 def main():
     ### Important variables ###
@@ -89,7 +89,7 @@ def main():
     
     # Ask user for variables
     groupName = input('Enter the name of the security group to assign to the pipeline and workspaces: ')
-    role = input('Enter the Workspace role to assign to the security group: ')
+    role = input('Enter the Workspace role to assign to the security group: ("Admin" or "Member") ')
     workspaceTag = input('Enter either the medallion layer or data product name (e.g. "Bronze" or "BIIAB"): ')
     
     createResources(groupName, role, workspaceTag, purpose)
