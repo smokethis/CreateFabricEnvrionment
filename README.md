@@ -8,6 +8,8 @@ Creates a series of workspaces based on input, which are in turn added to a pipe
 
 Requires the presence of a security group to assign workspace and pipeline rights to.
 
+Two environment variables are required to execute the code:
+
 ## Limitations
 
 - Currently does not support assigning workspaces to capacities; Fabric Trial capacities can not be automated.
