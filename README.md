@@ -33,7 +33,7 @@ Two environment variables are required to execute the code:
 - Currently does not support assigning workspaces to capacities; Fabric trial capacities can not be automated through API calls due to a lack of support for rights assignment to a trial capacity.
 > Code is commented out and should in theory work, but I cannot test it.
 
-- Only supports assigning Admin rights to a single user for pipelines. This is due to the fact that pipelines only support an `Admin` role - <https://learn.microsoft.com/en-us/fabric/cicd/deployment-pipelines/understand-the-deployment-process#permissions>
+- Only supports assigning Admin role for pipelines; this is due to pipelines only supporting an `Admin` role - <https://learn.microsoft.com/en-us/fabric/cicd/deployment-pipelines/understand-the-deployment-process#permissions>
 
 ## updatePipelineUserAsAdmin
 
