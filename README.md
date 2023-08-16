@@ -20,6 +20,8 @@ Creates a series of workspaces based on input, which are in turn added to a pipe
 
 > Tenant.ReadWrite.All is only required to use one specific function which is not called under normal operations; `updatePipelineUserAsAdmin`.
 
+No client secret is required for the app registration as the code must run under a users' delegated permissions.
+
 Two environment variables are required to execute the code:
 
 | Variable | Description |
