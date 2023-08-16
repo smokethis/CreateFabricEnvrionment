@@ -143,9 +143,9 @@ def assignWorkspaceToPipeline(token, workspaceId, pipelineId, stage):
         raise Exception('Error assigning workspace to pipeline: ' + str(response.status_code) + ' -- ' + error)
     return response
 
-def assignPipelineGroup(token, pipelineId, oid, accessRight):
+def assignPipelineGroup(token, pipelineId, oid):
     # Assign user to pipeline
-    content = json.dumps({'identifier': oid, 'accessRight': accessRight, 'principalType': 'Group'})
+    content = json.dumps({'identifier': oid, 'accessRight': 'Admin', 'principalType': 'Group'})
     response = placePowerBICall(token, 'post', f'pipelines/{pipelineId}/users', content)
     if response.status_code != 200:
         error = response.content.decode()

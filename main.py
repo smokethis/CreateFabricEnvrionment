@@ -29,13 +29,13 @@ def configureWorkspace(workspaceName, groupId, role):
 
     return workspaceId
 
-def configurePipeline(workspaces, pipelineName, pipelineDescription, groupId, role):
+def configurePipeline(workspaces, pipelineName, pipelineDescription, groupId):
 
     # Create a pipeline
     pipelineId = pbi.createPipeline(pbiToken, pipelineName, pipelineDescription).json()['id']
 
     # Assign user to pipeline
-    pbi.assignPipelineGroup(pbiToken, pipelineId, groupId, role)
+    pbi.assignPipelineGroup(pbiToken, pipelineId, groupId)
 
     # Assign workspaces to pipeline
     for workspace in workspaces:
@@ -82,14 +82,14 @@ def createResources(groupName, role, dataProductName, purpose):
 def main():
     ### Important variables ###
     groupName = '' # Name of security group to the new workspaces
-    role = '' # Role to assign to this security group on both workspaces and pipeline
+    role = '' # Role to assign to this security group on both workspaces
     dataProductName = '' # Name of the data product to create workspaces for
     purpose = '' # Purpose of the workspaces, used in pipeline name definition
     ###########################
     
     # Ask user for variables
     groupName = input('Enter the name of the security group to assign to the workspaces: ')
-    role = input('Enter the role to assign to the security group on the workspaces and pipeline: ')
+    role = input('Enter the role to assign to the security group on the workspaces: ')
     dataProductName = input('Enter the name of the data product to create workspaces for: ')
     purpose = input('Enter the purpose of the workspaces (e.g. "Engineering"): ')
     
