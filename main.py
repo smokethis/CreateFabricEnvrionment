@@ -41,7 +41,7 @@ def configurePipeline(workspaces, pipelineName, pipelineDescription, groupId):
     for workspace in workspaces:
         pbi.assignWorkspaceToPipeline(pbiToken, workspace['id'], pipelineId, workspace['stage'])
 
-def createResources(groupName, role, dataProductName, purpose):
+def createResources(groupName, role, workspaceTag, purpose):
 
     # Map environments to pipeline stages
     stageMap = { # environment name: pipeline stageid
@@ -53,7 +53,7 @@ def createResources(groupName, role, dataProductName, purpose):
     # Create a list of workspaces to create based on the data product name
     workspaces = []
     for stage in stageMap.keys():
-        workspaces.append({'name': 'GRP-' + dataProductName + '-' + stage, 'stage': stageMap.get(stage)})
+        workspaces.append({'name': 'GRP-' + workspaceTag + '-' + stage, 'stage': stageMap.get(stage)})
           
     # Fetch oid of the security group to assign to the workspaces
     result = graph.getGroup(groupName)
@@ -76,8 +76,8 @@ def createResources(groupName, role, dataProductName, purpose):
     print(workspaces)
     input('Press enter when capacity assignment is done')
 
-    configurePipeline(workspaces, 'GRP-' + purpose + dataProductName, 
-                      'Pipeline for ' + dataProductName + ' ' + purpose, groupId, role)
+    configurePipeline(workspaces, 'GRP-' + purpose + workspaceTag, 
+                      'Pipeline for ' + workspaceTag, groupId, role)
 
 def main():
     ### Important variables ###
@@ -88,11 +88,10 @@ def main():
     ###########################
     
     # Ask user for variables
-    groupName = input('Enter the name of the security group to assign to the workspaces: ')
-    role = input('Enter the role to assign to the security group on the workspaces: ')
-    dataProductName = input('Enter the name of the data product to create workspaces for: ')
-    purpose = input('Enter the purpose of the workspaces (e.g. "Engineering"): ')
+    groupName = input('Enter the name of the security group to assign to the pipeline and workspaces: ')
+    role = input('Enter the Workspace role to assign to the security group: ')
+    workspaceTag = input('Enter either the medallion layer or data product name (e.g. "Bronze" or "BIIAB"): ')
     
-    createResources(groupName, role, dataProductName, purpose)
+    createResources(groupName, role, workspaceTag, purpose)
 
 main()
