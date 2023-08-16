@@ -7,6 +7,7 @@ Creates a series of workspaces based on input, which are in turn added to a pipe
 ## Prerequisites
 
 - The name of a security group to assign workspace and pipeline rights to.
+- A user with Power Platform Admin rights or better.
 - An app registration with the following API permissions:
   - Power BI Service
     - Capacity.ReadWrite.All
@@ -15,6 +16,7 @@ Creates a series of workspaces based on input, which are in turn added to a pipe
     - Tenant.ReadWrite.All
   - Microsoft Graph
     - Group.Read.All
+- Power BI tenant settings must allow the use of service principals to use Power BI APIs (<https://go.microsoft.com/fwlink/?linkid=2055030>)??????????
 
 > Tenant.ReadWrite.All is only required to use one specific function which is not called under normal operations; `updatePipelineUserAsAdmin`.
 
