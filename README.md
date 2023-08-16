@@ -37,6 +37,8 @@ Two environment variables are required to execute the code:
 
 ## updatePipelineUserAsAdmin
 
-This function is not used during normal operation, but is included for completeness. It is used to assign a user as an admin to a pipeline in the event of this not being completed during code execution. 
+This function is not used during normal operation, but is included for completeness. It is used to assign a user as an admin to a pipeline in the event of this not being completed during code execution. If a pipeline is created but no user is assigned as an admin, the pipeline will not be visible in the Power BI Service UI.
 
-This is not currently possible through the Power BI Service UI, and must be done through API calls. You will need the ID of the pipeline to assign the user to, which can be obtained by calling the [GetPipelinesAsAdmin](https://learn.microsoft.com/en-us/rest/api/power-bi/admin/pipelines-get-pipelines-as-admin) endpoint.
+If this happens, you will not be able to create another pipeline with the same name as they must be unique, but will also be unable to see the created pipeline in the UI to delete it.
+
+The only way to remediate this situation is through API calls. You will need the ID of the pipeline to assign the user to, which can be obtained by calling the [GetPipelinesAsAdmin](https://learn.microsoft.com/en-us/rest/api/power-bi/admin/pipelines-get-pipelines-as-admin) endpoint. After which this can be passed to updatePipelineUserAsAdmin along with the user to assign as an admin; this will then reveal the pipeline to this user in the UI and allow deletion.
