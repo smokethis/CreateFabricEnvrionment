@@ -17,7 +17,7 @@ Creates a series of workspaces based on input, which are in turn added to a pipe
   - Microsoft Graph
     - Group.Read.All (Delegated)
 
-No client secret is required for the app registration as the code must run under a users' identity and use delegated grants, application grants are only supported for Tenant.Read.All and Tenant.ReadWrite.All permissions.
+No client secret is required for the app registration as the code must run under a users' identity and use delegated grants, application grants are only supported for Tenant.Read.All and Tenant.ReadWrite.All permissions. The user being delegated from must also have appropriate rights for the Power BI Service and Microsoft Graph.
 
 Two environment variables are required to execute the code:
 
