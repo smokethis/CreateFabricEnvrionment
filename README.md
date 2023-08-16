@@ -21,7 +21,7 @@ Creates a series of workspaces based on input, which are in turn added to a pipe
 > Tenant.ReadWrite.All is only required to use one specific function which is not called under normal operations; `updatePipelineUserAsAdmin`.
 
 Two environment variables are required to execute the code:
-|--|--|
+|---|---|
 | Variable | Description |
 | TENANT_ID | Tenant ID of the app registration |
 | CLIENT_ID | Client ID of the app registration |
