@@ -10,17 +10,14 @@ Creates a series of workspaces based on input, which are in turn added to a pipe
 - A user with Power Platform Admin rights or better.
 - An app registration with the following API permissions:
   - Power BI Service
-    - Capacity.ReadWrite.All
-    - Workspace.ReadWrite.All
-    - Pipeline.ReadWrite.All
-    - Tenant.ReadWrite.All
+    - Capacity.ReadWrite.All (Delegated)
+    - Workspace.ReadWrite.All (Delegated)
+    - Pipeline.ReadWrite.All (Delegated)
+    - Tenant.ReadWrite.All (Delegated)
   - Microsoft Graph
-    - Group.Read.All
-- Power BI tenant settings must allow the use of service principals to use Power BI APIs (<https://go.microsoft.com/fwlink/?linkid=2055030>)??????????
+    - Group.Read.All (Delegated)
 
-> Tenant.ReadWrite.All is only required to use one specific function which is not called under normal operations; `updatePipelineUserAsAdmin`.
-
-No client secret is required for the app registration as the code must run under a users' delegated permissions.
+No client secret is required for the app registration as the code must run under a users' identity and use delegated grants, application grants are only supported for Tenant.Read.All and Tenant.ReadWrite.All permissions.
 
 Two environment variables are required to execute the code:
 
