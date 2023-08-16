@@ -35,6 +35,8 @@ Two environment variables are required to execute the code:
 
 - Only supports assigning Admin role for pipelines; this is due to pipelines only supporting an `Admin` role - <https://learn.microsoft.com/en-us/fabric/cicd/deployment-pipelines/understand-the-deployment-process#permissions>
 
+- Does not yet support a full medallion architecture deployment.
+
 ## updatePipelineUserAsAdmin
 
 This function is not used during normal operation, but is included for completeness. It is used to assign a user as an admin to a pipeline in the event of this not being completed during code execution. If a pipeline is created but no user is assigned as an admin, the pipeline will not be visible in the Power BI Service UI.
