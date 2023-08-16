@@ -56,7 +56,7 @@ def createResources(groupName, role, dataProductName, purpose):
         workspaces.append({'name': 'GRP-' + dataProductName + '-' + stage, 'stage': stageMap.get(stage)})
           
     # Fetch oid of the security group to assign to the workspaces
-    result = graph.getGroup(graphToken, groupName)
+    result = graph.getGroup(groupName)
     groupId = result.json()['value'][0]['id']
 
     # Initialise list of workspace ids
