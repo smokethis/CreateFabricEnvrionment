@@ -29,7 +29,7 @@ Two environment variables are required to execute the code:
 
 ## Limitations
 
-- Currently does not support assigning workspaces to capacities; Fabric Trial capacities can not be automated.
+- Currently does not support assigning workspaces to capacities; Fabric trial capacities can not be automated through API calls due to a lack of support for rights assignment to a trial capacity.
 > Code is commented out and should in theory work, but I cannot test it.
 
 - Only sets user rights to the Admin role for both workspaces and pipelines.
